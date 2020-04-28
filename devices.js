@@ -412,5 +412,10 @@ var devices_info = {
     "FRITZ!Repeater 1200": "https://git.openwrt.org/?p=openwrt/openwrt.git;a=commit;h=7f187229a8e9b7966248b1e024217e07a9fc3e50",
     "FRITZ!WLAN Repeater 300E": "https://fritzfla.sh",
     "FRITZ!WLAN Repeater 450E": "https://fritzfla.sh"
+  },
+  "TP-Link": {
+    "TL-WR841N/ND" : {
+      "v13": "https://openwrt.org/toh/tp-link/tl-wr841nd#tftp_recovery_via_bootloader_for_v8_v9_v10_v11_v12_v13"
+    }
   }
 }
