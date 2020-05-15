@@ -11,7 +11,9 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
+/*
+    15.05.20 TS: initial commit
+*/
 var config = {
   // list images on console that match no model
   listMissingImages: false,
