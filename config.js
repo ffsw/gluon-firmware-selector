@@ -50,7 +50,7 @@ if (available_domain_prefixs[community] != null){
   [].forEach.call(errors_p, function(error) {
     error.innerHTML = 'Diese Seite soll nicht direkt aufgerufen werden. Bitte greife über den Firmware Link deiner Community zu.';
   });
-  window.stop();
+  window.location = "./fw_sw.html";
 }
 
 //ffsw global settings
