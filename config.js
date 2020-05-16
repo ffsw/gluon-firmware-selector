@@ -42,8 +42,15 @@ if (available_domain_prefixs[community] != null){
   var domain_prefix = community;
   var verbose_name  = available_domain_prefixs[community];
 } else {
-  var domain_prefix = 'ffwsn';
-  var verbose_name = "Freifunk Weinstraße Nord";
+  var errors_h1 = document.querySelectorAll('h1');
+  [].forEach.call(errors_h1, function(error) {
+    error.innerHTML = 'Keine Community angegeben - Das sind nicht die Firmwares die ihr sucht.';
+  });
+  var errors_p = document.querySelectorAll('p');
+  [].forEach.call(errors_p, function(error) {
+    error.innerHTML = 'Diese Seite soll nicht direkt aufgerufen werden. Bitte greife über den Firmware Link deiner Community zu.';
+  });
+  window.location = "./fw_sw.html";
 }
 
 //ffsw global settings
