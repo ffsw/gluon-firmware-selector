@@ -30,9 +30,9 @@ function getQueryVariable(variable)
 //Available domain_prefix
 const available_domain_prefixs = {'ffwsn':"Freifunk Weinstraße Nord",
                                   'ffwss':"Freifunk Weinstraße Süd",
-                                  'ffaw':"Freifunk Alzey-Worms", 
-                                  'ffso':"Freifunk Soonwald", 
-                                  'ffwy':"Freifunk Weyher", 
+                                  'ffaw':"Freifunk Alzey-Worms",
+                                  'ffso':"Freifunk Soonwald",
+                                  'ffwy':"Freifunk Weyher",
                                   'ffvp':"Freifunk Vorderpfalz",
                                    };
 
@@ -104,5 +104,8 @@ for (const[stage, folder] of Object.entries(fw_stages)){ // stages: {stable:stab
   for (let i=0; i<fw_types.length; i++) { // type: [factory, sysuograde, other] ...
     config.directories[firmware_base_path +'/'+ folder +'/'+ fw_types[i]+ "/"] = stage;
   }
+}
+if (domain_prefix == "ffvp"){
+    config["community_prefix"] = "gluon-ffwsn-ffvp-v";
 }
 
