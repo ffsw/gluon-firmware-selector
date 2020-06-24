@@ -74,7 +74,7 @@ var config = {
   // community prefix of the firmware images
   community_prefix: `gluon-${domain_prefix}-${domain_prefix}-v`,
   // firmware version regex
-  version_regex: '-([0-9]{3})?[.-]',
+  version_regex: '-([0-9]{3}[a-z]{0,1})?[.-]',
   //version_regex: '-(v[0-9]{3})?[.-]',
   // relative image paths and branch
   directories: {
