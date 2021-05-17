@@ -87,12 +87,12 @@ var config = {
   branch_descriptions: {
     stable: 'Gut getestet, zuverlässig und stabil.',
     //beta: 'Vorabtests neuer Stable-Kandidaten.',
-    pilot: 'Noch im Test.'
+    pilot: 'Läuft zurzeit im Testbetrieb.'
   },
   // recommended branch will be marked during selection
   recommended_branch: 'stable',
   // experimental branches (show a warning for these branches)
-  experimental_branches: ['pilot'],
+  experimental_branches: [],
   // path to preview pictures directory
   preview_pictures: 'pictures/',
   // link to changelog
