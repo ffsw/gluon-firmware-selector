@@ -117,6 +117,8 @@ var firmwarewizard = function() {
     'sysupgrade': 'Upgrade',
     'rootfs': "Root-Image",
     'kernel': "Kernel-Image",
+    'eva-filesystem': 'Bootloader-Root-Image',
+    'eva-kernel': 'Bootloader-Kernel-Image',
     'bootloader': 'Bootloader-Image'
   };
 
@@ -357,7 +359,7 @@ var firmwarewizard = function() {
   }
 
   function findType(name) {
-    var m = /-(sysupgrade|factory|rootfs|kernel|bootloader)[-.]/.exec(name);
+    var m = /-(sysupgrade|factory|rootfs|kernel|eva-filesystem|eva-kernel|bootloader)[-.]/.exec(name);
     return m ? m[1] : 'factory';
   }
 
@@ -484,6 +486,7 @@ var firmwarewizard = function() {
     preview = preview.replace('x86-kvm', 'x86-kvm.img');
     preview = preview.replace('x86-generic.img.vdi', 'x86-virtualbox.vdi');
     preview = preview.replace('x86-generic.img.vmdk', 'x86-vmware.vmdk');
+    preview = preview.replace('x86-legacy', 'x86-legacy.img');
 
     // collect branch versions
     app.currentVersions[branch] = version;
@@ -725,13 +728,24 @@ var firmwarewizard = function() {
     }
   }
 
+  function hasVendorDevicesForEnabledDeviceCategories(vendor) {
+    if (images[vendor]) {
+      for (let [key, value] of Object.entries(images[vendor])) {
+        if (enabled_device_categories.includes(value[0].category)) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
   function getVendors() {
     var vendorlist = [];
     for (var device_category_idx in enabled_device_categories) {
       var device_category = enabled_device_categories[device_category_idx];
       var category_vendors = Object.keys(config.vendormodels[device_category]);
       category_vendors.forEach(function (val, idx) {
-        if (!vendorlist.includes(val)) {
+        if (!vendorlist.includes(val) && hasVendorDevicesForEnabledDeviceCategories(val)) {
           vendorlist.push(val);
         }
       });
@@ -839,23 +853,36 @@ var firmwarewizard = function() {
         scrollDown();
       }
 
-      var deviceinfo = $('#deviceinfo');
-      var url = '';
-      deviceinfo.innerHTML = '';
+      // find device info link
+      function findDeviceInfo(vendor, model, revision, links) {
+        if (links[vendor] !== undefined && links[vendor][model] !== undefined) {
+          revisions = links[vendor][model];
+        } else {
+          return '';
+        }
 
-      if (
-        devices_info[currentVendor] !== undefined &&
-        devices_info[currentVendor][currentModel] !== undefined
-      ) {
-        url = devices_info[currentVendor][currentModel];
+        if (typeof revisions == 'object' && revisions[revision] !== undefined) {
+          return revisions[revision];
+        } else if (typeof revisions == 'string') {
+          return revisions;
+        } else {
+          return '';
+        }
       }
 
-      if (
-        config.devices_info !== undefined &&
-        config.devices_info[currentVendor] !== undefined &&
-        config.devices_info[currentVendor][currentModel]
-      ) {
-        url = config.devices_info[currentVendor][currentModel];
+      var url = '';
+      var custom_url = '';
+      var deviceinfo = $('#deviceinfo');
+      deviceinfo.innerHTML = '';
+
+      url = findDeviceInfo(currentVendor, currentModel, currentRevision, devices_info);
+
+      if ("devices_info" in config){
+        custom_url = findDeviceInfo(currentVendor, currentModel, currentRevision, config.devices_info);
+      }
+
+      if (custom_url !== '') {
+        url = custom_url;
       }
 
       if (url !== '') {

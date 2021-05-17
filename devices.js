@@ -24,6 +24,7 @@ var devices_recommended = {
   },
 
   "AVM": {
+    "FRITZ!Box 3370": {"avm-fritz-box-3370-rev-2-hynix-nand": "v2 Hynix", "avm-fritz-box-3370-rev-2-micron-nand": "v2 Micron"},
     "FRITZ!Box 4020": "avm-fritz-box-4020",
     "FRITZ!Box 4040": "avm-fritz-box-4040",
     "FRITZ!Box 7312": "avm-fritz-box-7312",
@@ -31,9 +32,10 @@ var devices_recommended = {
     "FRITZ!Box 7330": "avm-fritz-box-7330",
     "FRITZ!Box 7330 SL": "avm-fritz-box-7330-sl",
     "FRITZ!Box 7360 SL": "avm-fritz-box-7360-sl",
-    "FRITZ!Box 7360": {"avm-fritz-box-7360-v1": "v1", "avm-fritz-box-7360-v2": "v2"},
+    "FRITZ!Box 7360": "avm-fritz-box-7360",
     "FRITZ!Box 7362 SL": "avm-fritz-box-7362-sl",
     "FRITZ!Box 7412": "avm-fritz-box-7412",
+    "FRITZ!Box 7530": "avm-fritz-box-7530",
     "FRITZ!Repeater 1200": "avm-fritz-repeater-1200",
     "FRITZ!WLAN Repeater 300E": "avm-fritz-wlan-repeater-300e",
     "FRITZ!WLAN Repeater 450E": "avm-fritz-wlan-repeater-450e"
@@ -87,6 +89,7 @@ var devices_recommended = {
     "GL-MT300a": "gl-mt300a",
     "GL-MT300n": {"gl-mt300n": "v1", "gl-mt300n-v2": "v2"},
     "GL-MT750": "gl-mt750",
+    "GL-USB150": "gl.inet-gl-usb150",
     "VIXMINI": "gl.inet-vixmini"
   },
 
@@ -115,6 +118,8 @@ var devices_recommended = {
 
   "Netgear": {
     "DGN3500": "netgear-dgn3500b",
+    "EX3700": "netgear-ex3700",
+    "EX3800": "netgear-ex3800",
     "EX6100": {"netgear-ex6100v2": "v2"},
     "EX6150": {"netgear-ex6150": "v1", "netgear-ex6150v2": "v2"},
     "R6120": "netgear-r6120",
@@ -164,22 +169,29 @@ var devices_recommended = {
     "ALIX": "x86-geode"
   },
 
+  "Plasma Cloud": {
+    "PA300": "plasma-cloud-pa300",
+    "PA300E": "plasma-cloud-pa300e",
+    "PA1200": "plasma-cloud-pa1200",
+    "PA2200": "plasma-cloud-pa2200",
+  },
+
   "Raspberry Pi Foundation": {
-    "PI": { "raspberry-pi": "", "raspberrypi-model-b": "" },
+    "PI1": { "raspberry-pi": "", "raspberrypi-model-b": "" },
     "PI2": { "raspberry-pi-2": "", "raspberrypi-2-model-b": "" },
     "PI3": { "raspberry-pi-3": "", "raspberrypi-3-model-b": "" }
   },
 
   "TP-Link": {
     "Archer C2600": {"tp-link-archer-c2600": "v1"},
-    "Archer C2": {"tp-link-archer-c2": "v1"},
-    "Archer C5": {"tp-link-archer-c5": "v1"},
-    "Archer C6": {"tp-link-archer-c6": "v2"},
+    "Archer C2": "tp-link-archer-c2",
+    "Archer C5": "tp-link-archer-c5",
+    "Archer C6": "tp-link-archer-c6",
     "Archer C7": "tp-link-archer-c7",
     "Archer C20": "tp-link-archer-c20",
     "Archer C20i": "tp-link-archer-c20i",
     "Archer C50": {"tp-link-archer-c50": "v1", "tp-link-archer-c50-v3": "v3", "tp-link-archer-c50-v4": "v4"},
-    "Archer C59": {"tp-link-archer-c59": "v1"},
+    "Archer C59": "tp-link-archer-c59",
     "CPE210": {"tp-link-cpe210": "", "tp-link-cpe210-220": ""},
     "CPE220": {"tp-link-cpe220": "", "tp-link-cpe220-v1.1": "--ignore--"},
     "CPE510": {"tp-link-cpe510": "", "tp-link-cpe510-520": "", "tp-link-cpe520": "--ignore--"},
@@ -189,8 +201,8 @@ var devices_recommended = {
     "TD-W8980": "tp-link-td-w8980",
     "TD-W9980": "tp-link-td-w9980",
     "TL-MR3020": {"tp-link-tl-mr3020-v3": "v3"},
-    "TL-MR3420": {"tp-link-tl-mr3420-v5": "v5"},
-    "TL-WA801N/ND": {"tp-link-tl-wa801nd-v5": "v5"},
+    "TL-MR3420": "tp-link-tl-mr3420",
+    "TL-WA801N/ND": "tp-link-tl-wa801nd",
     "TL-WDR3500": "tp-link-tl-wdr3500",
     "TL-WDR3600": "tp-link-tl-wdr3600",
     "TL-WDR4300": "tp-link-tl-wdr4300",
@@ -214,7 +226,7 @@ var devices_recommended = {
                         "ubiquiti-rocket-m2-ti": "M2",
                         "ubiquiti-rocket-m5-ti": "M5"},
     "UniFi AC Lite": "ubiquiti-unifi-ac-lite",
-    "UniFi AC LR": "ubiquiti-unifi-ac-lite-mesh",                    
+    "UniFi AC LR": "ubiquiti-unifi-ac-lite-mesh",
     "UniFi AC Mesh": "ubiquiti-unifi-ac-mesh",
     "UniFi AC Mesh Pro": "ubiquiti-unifi-ac-mesh-pro",
     "UniFi AC Pro": "ubiquiti-unifi-ac-pro",
@@ -276,6 +288,12 @@ var devices_ath10k_lowmem = {
 	},
 };
 
+var devices_legacy_target = {
+  "x86": {
+    "legacy 32bit": "x86-legacy",
+  },
+};
+
 var devices_small_kernel_part = {
   "Linksys": {
     "EA6350": {"linksys-ea6350v3": "v3"}
@@ -294,7 +312,7 @@ var devices_4_32 = {
 
   "TP-Link": {
     "TL-MR13U": "tp-link-tl-mr13u",
-    "TL-MR3020": "tp-link-tl-mr3020",
+    "TL-MR3020": {"tp-link-tl-mr3020-v1": "v1"},
     "TL-MR3040": "tp-link-tl-mr3040",
     "TL-MR3220": "tp-link-tl-mr3220",
     "TL-MR3420": {"tp-link-tl-mr3420-v1": "v1", "tp-link-tl-mr3420-v2": "v2"},
@@ -389,6 +407,7 @@ var vendormodels = {
   "recommended": devices_recommended,
   "ath10k_lowmem": devices_ath10k_lowmem,
   "small_kernel_part": devices_small_kernel_part,
+  "legacy_target": devices_legacy_target,
   "4_32": devices_4_32,
   "8_32": devices_8_32,
   "16_32": devices_16_32,
@@ -400,17 +419,18 @@ var devices_info = {
     "Instant On AP11": "https://git.openwrt.org/?p=openwrt/openwrt.git;a=commit;h=102c8c55f217606cdbdc9a449667e034676b3e75"
   },
   "AVM": {
-    "FRITZ!Box 4020": "https://fritzfla.sh",
-    "FRITZ!Box 4040": "https://fritzfla.sh",
-    "FRITZ!Box 7312": "https://fritzfla.sh",
-    "FRITZ!Box 7320": "https://fritzfla.sh",
-    "FRITZ!Box 7330": "https://fritzfla.sh",
-    "FRITZ!Box 7330 SL": "https://fritzfla.sh",
-    "FRITZ!Box 7360": "https://fritzfla.sh",
-    "FRITZ!Box 7360 SL": "https://fritzfla.sh",
+    "FRITZ!Box 3370": "https://openwrt.org/toh/avm/fritz.box.wlan.3370#installation",
+    "FRITZ!Box 4020": "https://fritz-tools.readthedocs.io/",
+    "FRITZ!Box 4040": "https://fritz-tools.readthedocs.io/",
+    "FRITZ!Box 7312": "https://fritz-tools.readthedocs.io/",
+    "FRITZ!Box 7320": "https://fritz-tools.readthedocs.io/",
+    "FRITZ!Box 7330": "https://fritz-tools.readthedocs.io/",
+    "FRITZ!Box 7330 SL": "https://fritz-tools.readthedocs.io/",
+    "FRITZ!Box 7360": "https://fritz-tools.readthedocs.io/",
+    "FRITZ!Box 7360 SL": "https://fritz-tools.readthedocs.io/",
     "FRITZ!Repeater 1200": "https://git.openwrt.org/?p=openwrt/openwrt.git;a=commit;h=7f187229a8e9b7966248b1e024217e07a9fc3e50",
-    "FRITZ!WLAN Repeater 300E": "https://fritzfla.sh",
-    "FRITZ!WLAN Repeater 450E": "https://fritzfla.sh"
+    "FRITZ!WLAN Repeater 300E": "https://fritz-tools.readthedocs.io/",
+    "FRITZ!WLAN Repeater 450E": "https://fritz-tools.readthedocs.io/"
   },
   "devolo": {
     "WiFi Pro 1200e": "https://git.openwrt.org/?p=openwrt/openwrt.git;a=commit;h=1724d4e9ed7716a5444eca42adf045c2f3afc554",
@@ -428,5 +448,10 @@ var devices_info = {
     "UniFi AC Mesh Pro": "https://forum.darmstadt.freifunk.net/t/unifi-ap-erstinstallation/790",
     "UniFi AC Mesh": "https://forum.darmstadt.freifunk.net/t/unifi-ap-erstinstallation/790",
     "UniFi AC Pro": "https://forum.darmstadt.freifunk.net/t/unifi-ap-erstinstallation/790",
+  },
+  "TP-Link": {
+    "TL-WR841N/ND" : {
+      "v13": "https://openwrt.org/toh/tp-link/tl-wr841nd#tftp_recovery_via_bootloader_for_v8_v9_v10_v11_v12_v13"
+    }
   }
 }
